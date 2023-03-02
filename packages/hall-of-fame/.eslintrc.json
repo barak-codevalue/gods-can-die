@@ -1,5 +1,5 @@
 {
-  "extends": ["../.eslintrc.base.json"],
+  "extends": ["../../.eslintrc.base.json"],
   "ignorePatterns": ["!**/*"],
   "overrides": [
     {
@@ -9,7 +9,7 @@
           "error",
           {
             "type": "attribute",
-            "prefix": "godsCanDie",
+            "prefix": "hallOfFame",
             "style": "camelCase"
           }
         ],
@@ -17,7 +17,7 @@
           "error",
           {
             "type": "element",
-            "prefix": "gods-can-die",
+            "prefix": "hall-of-fame",
             "style": "kebab-case"
           }
         ]

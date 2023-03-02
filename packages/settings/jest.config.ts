@@ -1,9 +1,9 @@
 /* eslint-disable */
 export default {
-  displayName: 'hall-of-fame',
-  preset: '../jest.preset.js',
+  displayName: 'settings',
+  preset: '../../jest.preset.js',
   setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
-  coverageDirectory: '../coverage/hall-of-fame',
+  coverageDirectory: '../../coverage/packages/settings',
   transform: {
     '^.+\\.(ts|mjs|js|html)$': [
       'jest-preset-angular',

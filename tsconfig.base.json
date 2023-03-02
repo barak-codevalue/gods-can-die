@@ -15,9 +15,11 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@gods-can-die/hall-of-fame": ["hall-of-fame/src/index.ts"],
-      "@gods-can-die/runtime-config": ["runtime-config/src/index.ts"],
-      "@gods-can-die/settings": ["settings/src/index.ts"]
+      "@packages/hall-of-fame": ["packages/hall-of-fame/src/index.ts"],
+      "@packages/packages/runtime-config": [
+        "packages/runtime-config/src/index.ts"
+      ],
+      "@packages/settings": ["packages/settings/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

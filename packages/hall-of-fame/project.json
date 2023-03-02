@@ -1,15 +1,15 @@
 {
-  "name": "runtime-config",
+  "name": "hall-of-fame",
   "$schema": "../node_modules/nx/schemas/project-schema.json",
   "projectType": "library",
-  "sourceRoot": "runtime-config/src",
-  "prefix": "gods-can-die",
+  "sourceRoot": "packages/hall-of-fame/src",
+  "prefix": "hall-of-fame",
   "targets": {
     "test": {
       "executor": "@nrwl/jest:jest",
       "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
       "options": {
-        "jestConfig": "runtime-config/jest.config.ts",
+        "jestConfig": "packages/hall-of-fame/jest.config.ts",
         "passWithNoTests": true
       },
       "configurations": {
@@ -24,8 +24,8 @@
       "outputs": ["{options.outputFile}"],
       "options": {
         "lintFilePatterns": [
-          "runtime-config/**/*.ts",
-          "runtime-config/**/*.html"
+          "packages/hall-of-fame/**/*.ts",
+          "packages/hall-of-fame/**/*.html"
         ]
       }
     }

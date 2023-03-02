@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'gods-can-die-board',
+  selector: 'hall-of-fame-board',
   templateUrl: './board.component.html',
   styleUrls: ['./board.component.scss'],
 })
