@@ -1,1 +1,1 @@
-export * from './lib/runtime-config.module';
+export * from './runtime-config.module';
