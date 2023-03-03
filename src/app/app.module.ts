@@ -6,7 +6,11 @@ import { RouterModule } from '@angular/router';
 import { appRoutes } from './app.routes';
 import { HallOfFameModule } from '@packages/hall-of-fame';
 import { SettingsModule } from '@packages/settings';
-import { RuntimeConfigModule } from '@packages/packages/runtime-config';
+import {
+  Config,
+  RuntimeConfigModule,
+  createAppConfigInjectionToken,
+} from '@packages/packages/runtime-config';
 
 @NgModule({
   declarations: [AppComponent],
@@ -21,6 +25,9 @@ import { RuntimeConfigModule } from '@packages/packages/runtime-config';
         hallOfFame: {
           test2: 'test2',
         },
+        settings: {
+          test3: 'test3',
+        },
       },
     }),
   ],
@@ -28,3 +35,5 @@ import { RuntimeConfigModule } from '@packages/packages/runtime-config';
   bootstrap: [AppComponent],
 })
 export class AppModule {}
+
+export const CONFIG = createAppConfigInjectionToken<Config>('APP_CONFIG');

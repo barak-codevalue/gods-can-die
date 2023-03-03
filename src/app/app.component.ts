@@ -1,5 +1,5 @@
 import { Component, OnInit, inject } from '@angular/core';
-import { CONFIGURATION } from '@packages/packages/runtime-config';
+import { CONFIG } from './app.module';
 
 @Component({
   selector: 'gods-can-die-root',
@@ -7,10 +7,11 @@ import { CONFIGURATION } from '@packages/packages/runtime-config';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit {
-  private readonly config = inject(CONFIGURATION);
+  private readonly config = inject(CONFIG);
+  configJson = JSON.stringify(this.config, null, 2);
   title = 'gods-can-die';
 
   ngOnInit(): void {
-    console.log(this.config);
+    console.log('root', this.config);
   }
 }
