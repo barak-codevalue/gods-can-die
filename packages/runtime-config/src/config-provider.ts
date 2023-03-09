@@ -1,8 +1,10 @@
 import { InjectionToken } from '@angular/core';
-import { Config, ConfigWindow } from '.';
+import { Config, ConfigOptions, ConfigWindow } from './types';
+import { merge } from 'lodash';
 
-const appConfigFactory = (): Config =>
-  (window as unknown as ConfigWindow).appConfig || {};
+function appConfigFactory(): Config {
+  return (window as unknown as ConfigWindow).appConfig || {};
+}
 
 export function createAppConfigInjectionToken<T extends object>(
   tokenKey: string
@@ -11,8 +13,7 @@ export function createAppConfigInjectionToken<T extends object>(
     providedIn: 'root',
     factory: () => {
       const appConfig = appConfigFactory();
-      const config = appConfig ?? {};
-      return config as T;
+      return appConfig as T;
     },
   });
 }
@@ -29,4 +30,18 @@ export function createModuleConfigInjectionToken<T extends object>(
       return config as T;
     },
   });
+}
+
+export async function loadConfig(options: ConfigOptions): Promise<void> {
+  let config = { ...options.config };
+  if (options.configUrl) {
+    try {
+      const response = await fetch(options.configUrl);
+      const responseConfig = await response.json();
+      config = merge(responseConfig, config);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+  (window as unknown as ConfigWindow).appConfig = config;
 }

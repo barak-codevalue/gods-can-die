@@ -1,5 +1,5 @@
 import { Component, OnInit, inject } from '@angular/core';
-import { CONFIG } from '../hall-of-fame.module';
+import { CONFIG } from '../core/injectors';
 
 @Component({
   selector: 'hall-of-fame-board',
@@ -7,9 +7,7 @@ import { CONFIG } from '../hall-of-fame.module';
   styleUrls: ['./board.component.scss'],
 })
 export class BoardComponent implements OnInit {
-  private readonly config = {}; //inject(CONFIG_MODULE);
-
-  configJson = JSON.stringify(this.config, null, 2);
+  protected readonly config = inject(CONFIG);
 
   ngOnInit(): void {
     console.log('BoardComponent', this.config);

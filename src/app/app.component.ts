@@ -7,8 +7,7 @@ import { CONFIG } from './app.module';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit {
-  private readonly config = inject(CONFIG);
-  configJson = JSON.stringify(this.config, null, 2);
+  protected readonly config = inject(CONFIG);
   title = 'gods-can-die';
 
   ngOnInit(): void {

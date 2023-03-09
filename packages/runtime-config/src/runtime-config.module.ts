@@ -1,4 +1,10 @@
-import { APP_INITIALIZER, NgModule } from '@angular/core';
+import {
+  APP_INITIALIZER,
+  ENVIRONMENT_INITIALIZER,
+  NgModule,
+} from '@angular/core';
+import { ConfigOptions } from './types';
+import { loadConfig } from './config-provider';
 
 @NgModule({
   imports: [],
@@ -16,32 +22,18 @@ export class RuntimeConfigModule {
       ],
     };
   }
-}
 
-export async function loadConfig(options: ConfigOptions): Promise<Config> {
-  let config = options.config ?? {};
-  if (options.configUrl) {
-    const response = await fetch(options.configUrl);
-    const responseConfig = await response.json();
-    config = { ...responseConfig, ...config };
+  static forFeature(options: ConfigOptions) {
+    return {
+      ngModule: RuntimeConfigModule,
+      providers: [
+        {
+          provide: ENVIRONMENT_INITIALIZER,
+          useFactory: () => () =>
+            console.log('ENVIRONMENT_INITIALIZER', options),
+          multi: true,
+        },
+      ],
+    };
   }
-  (window as unknown as ConfigWindow).appConfig = config;
-  return config;
-}
-
-export interface ConfigOptions {
-  configUrl?: string;
-  config?: Record<string, unknown>;
-}
-
-export interface FeatureConfigOptions {
-  feature: string;
-}
-
-export interface Config {
-  [key: string]: unknown;
-}
-
-export interface ConfigWindow extends Window {
-  appConfig: Config;
 }

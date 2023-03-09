@@ -1,5 +1,5 @@
 import { Component, OnInit, inject } from '@angular/core';
-import { CONFIG } from '../settings.module';
+import { CONFIG } from '../core/injectors';
 
 @Component({
   selector: 'settings-user-settings',
@@ -7,8 +7,7 @@ import { CONFIG } from '../settings.module';
   styleUrls: ['./user-settings.component.scss'],
 })
 export class UserSettingsComponent implements OnInit {
-  config = inject(CONFIG);
-  configJson = JSON.stringify(this.config, null, 2);
+  protected readonly config = inject(CONFIG);
 
   ngOnInit(): void {
     console.log('settings', this.config);

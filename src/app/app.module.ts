@@ -20,14 +20,10 @@ import {
     HallOfFameModule,
     SettingsModule,
     RuntimeConfigModule.forRoot({
+      configUrl: 'configs/app-config.json',
       config: {
-        test1: 'test1',
-        hallOfFame: {
-          test2: 'test2',
-        },
-        settings: {
-          test3: 'test3',
-        },
+        localProp: 'localValue',
+        hallOfFame: { localProp: 'localValue' },
       },
     }),
   ],
