@@ -35,7 +35,7 @@
           ],
           "outputHashing": "all"
         },
-        "development": {
+        "dev": {
           "buildOptimizer": false,
           "optimization": false,
           "vendorChunk": true,
@@ -58,11 +58,11 @@
         "production": {
           "browserTarget": "gods-can-die:build:production"
         },
-        "development": {
-          "browserTarget": "gods-can-die:build:development"
+        "dev": {
+          "browserTarget": "gods-can-die:build:dev"
         }
       },
-      "defaultConfiguration": "development"
+      "defaultConfiguration": "dev"
     },
     "extract-i18n": {
       "executor": "@angular-devkit/build-angular:extract-i18n",
