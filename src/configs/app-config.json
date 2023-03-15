@@ -1,9 +1,16 @@
 {
-  "test1": "test1",
+  "production": false,
+  "apiUrl": "http://localhost:3000/api",
+  "featureFlags": {
+    "enableNewFeature": true
+  },
   "hallOfFame": {
-    "test2": "test2"
+    "maxItemsPerPage": 10
   },
   "settings": {
-    "test3": "test3"
+    "test3": "test3",
+    "featureFlags": {
+      "enableNewSettings": false
+    }
   }
 }
